@@ -12,6 +12,8 @@ const getMoodColor = (mood: string) => {
       return "#f44336"; // Red
     case "Neutral":
       return "#9e9e9e"; // Grey
+    case "Numb":
+      return "#000"; // Grey
     default:
       return "#f9f9f9";
   }
