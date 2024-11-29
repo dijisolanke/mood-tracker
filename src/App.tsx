@@ -3,6 +3,7 @@ import styled from "styled-components";
 import MoodForm from "./components/MoodForm";
 import MoodCalendar from "./components/MoodCalendar";
 import { Mood } from "./components/MoodForm/types";
+import MoodStats from "./components/MoodStats";
 
 const AppContainer = styled.div`
   max-width: 800px;
@@ -33,6 +34,7 @@ const App: React.FC = () => {
       <h1>Daily Mood Tracker</h1>
       <MoodForm onAddMood={handleAddMood} />
       <MoodCalendar moods={moods} onDeleteMood={handleDeleteMood} />
+      <MoodStats moods={moods} />
     </AppContainer>
   );
 };
