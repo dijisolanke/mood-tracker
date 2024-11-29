@@ -27,6 +27,7 @@ const MoodForm: React.FC<MoodFormProps> = ({ onAddMood }) => {
           <option value="Sad">Sad</option>
           <option value="Anxious">Anxious</option>
           <option value="Neutral">Neutral</option>
+          <option value="Depressed">Depressed</option>
         </Select>
         <TextArea
           rows={4}

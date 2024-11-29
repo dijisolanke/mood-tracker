@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import MoodForm from "./components/MoodForm";
 import MoodCalendar from "./components/MoodCalendar";
@@ -11,19 +11,28 @@ const AppContainer = styled.div`
 `;
 
 const App: React.FC = () => {
-  const [moods, setMoods] = useState<Mood[]>([]);
+  const [moods, setMoods] = useState<Mood[]>(() => {
+    const savedMoods = localStorage.getItem("moods");
+    return savedMoods ? JSON.parse(savedMoods) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("moods", JSON.stringify(moods));
+  }, [moods]);
 
   const handleAddMood = (newMood: Mood) => {
     setMoods((prevMoods) => [...prevMoods, newMood]);
-    console.log("Moods:", [...moods, newMood]); // For debugging
+  };
+
+  const handleDeleteMood = (id: number) => {
+    setMoods((prevMoods) => prevMoods.filter((mood) => mood.id !== id));
   };
 
   return (
     <AppContainer>
       <h1>Daily Mood Tracker</h1>
       <MoodForm onAddMood={handleAddMood} />
-      <MoodCalendar moods={moods} />
-      {/* Other components like MoodStats will go here */}
+      <MoodCalendar moods={moods} onDeleteMood={handleDeleteMood} />
     </AppContainer>
   );
 };
