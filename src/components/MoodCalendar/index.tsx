@@ -13,8 +13,11 @@ const getMoodColor = (mood: string) => {
   return moodColors[mood as keyof typeof moodColors] || "#f9f9f9";
 };
 
-const MoodCalendar: React.FC<MoodCalendarProps> = ({ moods, onDeleteMood }) => {
-  const currentDate = new Date();
+const MoodCalendar: React.FC<MoodCalendarProps> = ({
+  moods,
+  onDeleteMood,
+  currentDate = new Date(),
+}) => {
   const currentYear = currentDate.getFullYear();
   const currentMonth = currentDate.getMonth();
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();

@@ -8,17 +8,21 @@ export const CalendarContainer = styled.div`
 `;
 
 export const DayCell = styled.div<{ moodColor: string }>`
-  padding: 20px;
+  padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: ${({ moodColor }) => moodColor || '#f9f9f9'};
   text-align: center;
   position: relative;
-
+  cursor: pointer;
+  
   &:hover {
-    cursor: pointer;
-    opacity: 0.8;
-  }
+      opacity: 0.8;
+      cursor: pointer;
+    }
+    &:hover button {
+      cursor: pointer;
+  } 
 `;
 
 export const MoodIndicator = styled.div`
