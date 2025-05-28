@@ -9,6 +9,7 @@ I may add some functionality to be able to output a chart of my mood over time.
 - React
 - Styled Components
 - Typescript
+- Jest tests
 - Vercel (Deployment)
 
 
